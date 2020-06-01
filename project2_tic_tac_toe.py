@@ -4,8 +4,16 @@
 import textwrap
 from random import shuffle
 
-VICTORY_CONDITIONS = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
-
+VICTORY_CONDITIONS = (
+    (0, 1, 2),
+    (3, 4, 5),
+    (6, 7, 8),
+    (0, 3, 6),
+    (1, 4, 7),
+    (2, 5, 8),
+    (0, 4, 8),
+    (2, 4, 6),
+)
 
 
 def show_rules():
@@ -17,7 +25,7 @@ def show_rules():
     * horizontal,
     * vertical or
     * diagonal row
-    Board schema:
+    Board schema (like Numpad on your keyboard):
     ---------
     7 | 8 | 9
     ---------
@@ -28,6 +36,7 @@ def show_rules():
     """
 
     print(textwrap.dedent(rules))
+    print("Play!")
 
 
 def show_board(board):
@@ -42,13 +51,13 @@ def show_board(board):
     print(textwrap.dedent(print_board))
 
 
-
 def update_board(board, player, space):
     board[space] = player
 
 
 def check_is_empty(board, space):
     return board[space] == " "
+
 
 def user_input(player):
     print(f"Player {player} |", end=" ")
@@ -57,8 +66,8 @@ def user_input(player):
         try:
             space = int(input("Choose space(number): "))
 
-            if space in range(10):
-                return space-1
+            if space in range(1, 10):
+                return space - 1
             else:
                 print("Choose space in valid range 1-9")
                 continue
@@ -66,58 +75,26 @@ def user_input(player):
             print("Choose number")
 
 
-# def check_victory2(board, player):
-#
-#
-#     # horizontal
-#     for c in range(0, 7, 3):
-#         if board[c] == player and board[c + 1] == player and board[c + 2] == player:
-#             return True
-#
-#     # vertical
-#     for c in range(0, 3):
-#         if board[c] == player and board[c + 3] == player and board[c + 6] == player:
-#             return True
-#
-#     # diagonal
-#     if board[0] == player and board[4] == player and board[8] == player or \
-#         board[2] == player and board[4] == player and board[6] == player:
-#         return True
-#
-#     return False
-
 def check_victory(board, player):
     for x, y, z in VICTORY_CONDITIONS:
         if player == board[x] == board[y] == board[z]:
             return True
     return False
 
+
 def check_is_tie(board):
     return " " not in board
 
-# print_rules()
-# check_victory(board)
-# user_input("X")
-import profile
 
-test_board = ["o", "x", "x", "x", "x", "o", "o", "o", "o"]
-sym = "o"
-
-if __name__ == '__main__':
-
+def game_loop():
     board = [" " for i in range(9)]
-    P1 = "X"
-    P2 = "O"
-    game = True
-    player_order = [P1, P2]
-    shuffle(player_order)
-    # print(check_victory(test_board, sym))
-    # show_board(test_board)
-    # update_board(test_board,P1, 1)
-    # show_board(test_board)
-    # print(check_is_empty(test_board, 4))
 
-    # show_rules()
+    player_order = ["X", "O"]
+    game = True
+
+    shuffle(player_order)
+
+    show_rules()
     while game:
 
         for player in player_order:
@@ -129,15 +106,18 @@ if __name__ == '__main__':
             update_board(board, player, player_space)
             show_board(board)
             if check_victory(board, player):
-                print(f"You win, player {player}")
+                print(f"Player {player} win!")
                 game = False
                 break
 
             if check_is_tie(board):
-                print("It is tie, nobody win")
+                print("It is tie, nobody win!")
                 game = False
                 break
 
+    # explicit is better then implicit?
+    exit()
 
 
-
+if __name__ == "__main__":
+    game_loop()
