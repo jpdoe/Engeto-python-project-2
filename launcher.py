@@ -1,4 +1,5 @@
-from project2_bulls_cows import game_loop as bc_game_loop
+from bulls_cows import game_loop as bc_game_loop
+from tic_tac_toe import game_loop as tc_game_loop
 
 print("Choose your game:")
 print("1. Bulls and cows")
@@ -19,5 +20,5 @@ while True:
 if choice == 1:
     bc_game_loop()
 elif choice == 2:
-    print("Tic tac toe comming soon")
+    tc_game_loop()
 
