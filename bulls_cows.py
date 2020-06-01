@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Description: Project 2 - Part 1 'Bulls and Cows game' in Engeto Online Python Academy
+# Author: Jan Polák
+
 # bulls and cows
 # Tvým úkolem bude vytvořit program, který by simuloval hru Bulls and Cows. Hra funguje následovně:
 #

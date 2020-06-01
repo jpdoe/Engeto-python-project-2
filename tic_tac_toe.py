@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-# change
+# Description: Project 2 - Part 2 'Tic Tac Toe game' in Engeto Online Python Academy
+# Author: Jan Polák
+
 import textwrap
 from random import shuffle
 

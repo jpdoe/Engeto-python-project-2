@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+# Description: Project 2 - Part 3 'Launcher for BC and TTT game' in Engeto Online Python Academy
+# Author: Jan Polák
+
 from bulls_cows import game_loop as bc_game_loop
 from tic_tac_toe import game_loop as tc_game_loop
 
