@@ -11,6 +11,7 @@
 #
 # Příklad hry s číslem 2017
 #
+
 # Hi there!
 # I've generated a random 4 digit number for you.
 # Let's play a bulls and cows game.
