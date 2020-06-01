@@ -26,4 +26,3 @@ if choice == 1:
     bc_game_loop()
 elif choice == 2:
     tc_game_loop()
-

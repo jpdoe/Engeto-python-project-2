@@ -5,6 +5,7 @@
 
 from random import seed, randint
 
+
 def set_rand_num_len():
     while True:
         try:
@@ -16,7 +17,9 @@ def set_rand_num_len():
                 print("Hold your horses, partner! How you want guess 0 digit number?")
                 continue
             else:
-                print("Hold your horses, partner! Your secret number length must have 10 digits or less")
+                print(
+                    "Hold your horses, partner! Your secret number length must have 10 digits or less"
+                )
                 continue
 
         except ValueError:
@@ -56,11 +59,13 @@ def user_input(num_len):
             print(user_num_list)
             if len(user_num_list) < num_len:
                 print(
-                    f"Hold your horses, partner! You aim for {num_len} digits number. You number is too short. You need a plan!")
+                    f"Hold your horses, partner! You aim for {num_len} digits number. You number is too short. You need a plan!"
+                )
                 continue
             elif len(user_num_list) > num_len:
                 print(
-                    f"Hold your horses, partner! You aim for {num_len} digits number. You number is too long. You need a plan!")
+                    f"Hold your horses, partner! You aim for {num_len} digits number. You number is too long. You need a plan!"
+                )
                 continue
             else:
                 return user_num_list
@@ -116,6 +121,6 @@ def game_loop():
             break
         user_attempt += 1
 
-if __name__ == '__main__':
-    game_loop()
 
+if __name__ == "__main__":
+    game_loop()
