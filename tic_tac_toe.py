@@ -17,11 +17,13 @@ VICTORY_CONDITIONS = (
     (2, 4, 6),
 )
 
+
 def show_welcome():
     string = "Welcome to Tic Tac Toe game!"
     print(len(string) * "+")
     print(string)
     print("")
+
 
 def show_rules():
     # \ to avoid empty line
@@ -128,7 +130,5 @@ def game_loop():
                 break
 
 
-
 if __name__ == "__main__":
     game_loop()
-

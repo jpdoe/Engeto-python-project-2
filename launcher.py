@@ -32,5 +32,3 @@ while True:
             continue
     except ValueError:
         print("This is not number")
-
-

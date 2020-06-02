@@ -5,13 +5,18 @@
 
 from random import seed, randint
 
-DEBUG = True
+DEBUG = False
 
 
 def show_welcome():
     string = "Welcome to Bulls and Cows game, cowboy!"
     print(len(string) * "+")
     print(string)
+
+
+def show_banner(length):
+    print(f"I've generated a random {length} digit number for you.")
+    print("Let's play a bulls and cows game.")
 
 
 def set_game_num_len():
@@ -49,7 +54,7 @@ def generate_number(rand_num_len):
 
 def check_valid_number(user_in):
     try:
-        test_num = int(user_in)
+        int(user_in)
         return True
     except ValueError:
         return False
@@ -92,16 +97,9 @@ def check_conditions(user_num, game_num):
     return score
 
 
-def show_banner(length):
-    print(f"I've generated a random {length} digit number for you.")
-    print("Let's play a bulls and cows game.")
-
-
 def game_loop():
     show_welcome()
-
     number_length = set_game_num_len()
-
     game_number = generate_number(number_length)
     show_banner(number_length)
 
