@@ -17,6 +17,11 @@ VICTORY_CONDITIONS = (
     (2, 4, 6),
 )
 
+def show_welcome():
+    string = "Welcome to Tic Tac Toe game!"
+    print(len(string) * "+")
+    print(string)
+    print("")
 
 def show_rules():
     # \ to avoid empty line
@@ -96,15 +101,20 @@ def game_loop():
 
     shuffle(player_order)
 
+    show_welcome()
     show_rules()
+    show_board(board)
     while game:
 
         for player in player_order:
-            show_board(board)
-            player_space = user_input(player)
-            if not check_is_empty(board, player_space):
-                print("Space is occupied. Choose another space")
-                user_input(player)
+
+            while True:
+                player_space = user_input(player)
+                if not check_is_empty(board, player_space):
+                    print("Space is occupied. Choose another space")
+                    continue
+                break
+
             update_board(board, player, player_space)
             show_board(board)
             if check_victory(board, player):
@@ -117,9 +127,8 @@ def game_loop():
                 game = False
                 break
 
-    # explicit is better then implicit?
-    exit()
 
 
 if __name__ == "__main__":
     game_loop()
+
