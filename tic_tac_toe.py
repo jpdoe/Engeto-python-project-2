@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Description: Project 2 - Part 2 'Tic Tac Toe game' in Engeto Online Python Academy
+# Description: Project 2 - Part 2 'Tic Tac Toe game' for Engeto Online Python Academy
 # Author: Jan Polák
 
 import textwrap

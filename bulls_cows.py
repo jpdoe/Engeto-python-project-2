@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-# Description: Project 2 - Part 1 'Bulls and Cows game' in Engeto Online Python Academy
+# Description: Project 2 - Part 1 'Bulls and Cows game' for Engeto Online Python Academy
 # Author: Jan Polák
 
 from random import seed, randint
 
 DEBUG = True
+
 
 def set_rand_num_len():
     while True:
@@ -29,7 +30,6 @@ def set_rand_num_len():
 
 
 def generate_number(rand_num_len):
-
     seed()
     rand_number = []
 
@@ -50,7 +50,6 @@ def check_valid_number(user_in):
 
 
 def user_input(num_len):
-
     while True:
 
         user_num_raw = input("Your number: ")
@@ -93,7 +92,6 @@ def show_welcome(length):
     print("Let's play a bulls and cows game.")
 
 
-
 def game_loop():
     number_length = set_rand_num_len()
 
@@ -124,7 +122,7 @@ def game_loop():
             elif number_length < user_attempt < (number_length + 2):
                 win_string = "Good"
             elif (number_length + 2) < user_attempt < (number_length + 3):
-                win_string ="Well...."
+                win_string = "Well...."
             else:
                 win_string = "GIT GUD"
             print("")
