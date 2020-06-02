@@ -5,6 +5,7 @@
 
 from random import seed, randint
 
+DEBUG = True
 
 def set_rand_num_len():
     while True:
@@ -56,7 +57,7 @@ def user_input(num_len):
         if check_valid_number(user_num_raw):
 
             user_num_list = list(user_num_raw)
-            print(user_num_list)
+
             if len(user_num_list) < num_len:
                 print(
                     f"Hold your horses, partner! You aim for {num_len} digits number. You number is too short. You need a plan!"
@@ -86,16 +87,11 @@ def check_conditions(user_num, game_num):
     return score
 
 
-def print_welcome(length):
+def show_welcome(length):
     print("Hello, cowboy!")
     print(f"I've generated a random {length} digit number for you.")
     print("Let's play a bulls and cows game.")
 
-
-# def print_score(score):
-#     # dynamic change of bull | bulls
-#     # if score 1 => bull, cow; else bulls, cows
-#     pass
 
 
 def game_loop():
@@ -104,13 +100,17 @@ def game_loop():
     user_attempt = 1
 
     game_number = generate_number(number_length)
-    print_welcome(number_length)
+    show_welcome(number_length)
 
     while True:
-        print("Game number", game_number)
+
+        if DEBUG:
+            print("Game number", game_number)
+
         user_number = user_input(number_length)
 
-        print("User number", user_number)
+        if DEBUG:
+            print("User number", user_number)
 
         user_score = check_conditions(user_number, game_number)
 
@@ -118,6 +118,17 @@ def game_loop():
 
         if user_score["bulls"] == number_length:
             print(f"You win, partner! You need {user_attempt} guesses")
+
+            if user_attempt <= (number_length):
+                win_string = "Splendid!"
+            elif number_length < user_attempt < (number_length + 2):
+                win_string = "Good"
+            elif (number_length + 2) < user_attempt < (number_length + 3):
+                win_string ="Well...."
+            else:
+                win_string = "GIT GUD"
+            print("")
+            print(10 * "*", win_string, 10 * "*")
             break
         user_attempt += 1
 
