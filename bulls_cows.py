@@ -8,7 +8,13 @@ from random import seed, randint
 DEBUG = True
 
 
-def set_rand_num_len():
+def show_welcome():
+    string = "Welcome to Bulls and Cows game, cowboy!"
+    print(len(string) * "+")
+    print(string)
+
+
+def set_game_num_len():
     while True:
         try:
             rand_num_len = int(input("Type length of your secret number: "))
@@ -86,20 +92,20 @@ def check_conditions(user_num, game_num):
     return score
 
 
-def show_welcome(length):
-    print("Hello, cowboy!")
+def show_banner(length):
     print(f"I've generated a random {length} digit number for you.")
     print("Let's play a bulls and cows game.")
 
 
 def game_loop():
-    number_length = set_rand_num_len()
+    show_welcome()
 
-    user_attempt = 1
+    number_length = set_game_num_len()
 
     game_number = generate_number(number_length)
-    show_welcome(number_length)
+    show_banner(number_length)
 
+    user_attempt = 1
     while True:
 
         if DEBUG:
